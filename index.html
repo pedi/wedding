@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+        <style>
+            :root {
+                --header-height: 36px;
+                --header-font-size: 20px;
+                --intro1-font-size: 24px;
+            }
+
+            /* layout */
+            body {
+                /* reset the browser margin */
+                margin: 0;
+                scroll-snap-type: y mandatory;
+                scroll-padding-top: var(--header-height);
+            }
+            
+            section {
+                scroll-snap-align: start;
+                width: 100vw;
+                height: calc(100vh - var(--header-height));
+                padding: 12px;
+                box-sizing: border-box;
+
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+            }
+
+            /* fixed header */
+            header {
+                position: fixed;
+                top: 0;
+                height: var(--header-height);
+                width: 100vw;
+                box-sizing: border-box;
+                background: white;
+                border-bottom: 0.5px solid darkgray;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+            }
+            .fake-header {
+                height: var(--header-height);
+            }
+            .header__logo {
+                width: 20px;
+                height: 20px;
+            }
+            .header__text {
+                margin: 0 5px;
+                font-size: var(--header-font-size);
+            }
+
+
+            /* Intro 1 */ 
+            .intro1 {
+                justify-content: flex-start;
+                padding-top: 40px;
+            }
+            .intro1__image {
+                background: lightgray;
+                width: 80vw;
+                height: 80vw;
+            }
+            .intro1__text {
+                width: 80vw;
+                text-align: right;
+                line-height: 1.6;
+                font-size: var(--intro1-font-size);
+                font-style: italic;
+                font-weight: 200;
+
+                margin-top: 10px;
+            }
+
+            .intro2 {
+            }
+
+            .intro2__image {
+                width: 70vw;
+                height: 70vw;
+                background: lightblue;
+            }
+
+            .intro2__text {
+                font-size: var(--intro1-font-size);
+                text-align: center;
+                margin: 5px 0;
+            }
+
+            .section-date {
+            }
+            .section-date__title {
+                font-size: var(--header-font-size);
+            }
+            .section-date__date-text {
+                font-size: 48px;
+            }
+            .section-date__calendar-link {
+                margin-top: 20px;
+                text-decoration: none;
+                padding: 8px;
+                color: black;
+                cursor: pointer;
+                border-radius: 2px;
+                border: 0.5px solid black;
+            }
+
+            .section-venue {
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+            }
+            .section-venue__title {
+                font-size: var(--header-font-size);
+            }
+            .section-venue__venue-text {
+                font-size: 28px;
+                margin-bottom: 20px;
+            }
+
+            .section-rsvp__title {
+                font-size: var(--header-font-size);
+                margin-bottom: 20px;
+            }
+            
+        </style>
+        
+    </head>
+    <body>
+        <header>
+            <!-- male logo here -->
+            <span class="header__logo" style="background:skyblue;"></span>
+            <span class="header__text">
+            Wedding 
+            </span>
+            <!-- female logo here -->
+            <span class="header__logo" style="background:lightsalmon;"></span>
+        
+        </header>
+
+        <div class="fake-header"></div>
+        <section class="intro1">
+            <div class="intro1__image"></div>
+            <div class="intro1__text">
+                10 Years Later <br/>
+                Two Folks decided to <strike>get married</strike><br/>
+                be together FOREVER
+            </div>
+        </section>
+
+        <section class="intro2">
+            <div class="intro2__image"></div>
+            <div class="intro2__text">
+                CHENCHEN <br/> & <br/> JASPER
+            </div>
+            <div class="intro2__image" style="background:lightsalmon"></div>
+        </section>
+
+        <section class="section-date">
+            <div class="section-date__title">
+                SAVE The DATE
+            </div>
+
+            <div class="section-date__date-text">
+                24•8•2019
+            </div>
+
+            <a class="section-date__calendar-link" target="__blank" href="http://www.google.com/calendar/event?action=TEMPLATE&dates=20190823T223000Z%2F20190824T013000Z&text=Wedding&location=Open%20Farm&details=lalalal">
+                Book on your calendar
+            </a>
+        </section>
+
+        <section class="section-venue">
+            <div class="section-venue__title">
+               Save The Venue 
+            </div>
+            <div class="section-venue__venue-text">
+                Open Farm Community
+            </div>
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3988.7822998861043!2d103.81361751445861!3d1.3057337620800542!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31da1a224e7f6a3b%3A0x3c9a08c69ab33461!2sOpen+Farm+Community!5e0!3m2!1sen!2ssg!4v1561562442952!5m2!1sen!2ssg" width="100%" height="70%" frameborder="0" style="border:0" allowfullscreen></iframe>
+        </section>
+
+        <section class="section-rsvp">
+            <div class="section-rsvp__title">RSVP NOW</div>
+            <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSdKxHkI5iwc0iTtrRb4UUbA9ArMY6jTpTjsBuNKNC869a0PDw/viewform?embedded=true" width="110%" height="90%" frameborder="0" marginheight="0" marginwidth="0">Loading...</iframe>
+        </section>
+    </body>
+</html>
