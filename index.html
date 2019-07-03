@@ -1,12 +1,40 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
     <head>
         <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+        <title>Chenchen & Jasper's Wedding Invitation</title>
+        <meta name="description" content="Request the pleasure of your company, at the celebration of their union"/>
+        <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+        <link rel="icon" href="/favicon.ico" type="image/x-icon">
+        <style>
+        /* latin */
+        @font-face {
+            font-family: 'Dancing Script';
+            font-style: normal;
+            font-weight: 400;
+            font-display: block;
+            src: local('Dancing Script Regular'), local('DancingScript-Regular'), url(https://fonts.gstatic.com/s/dancingscript/v10/If2RXTr6YS-zF4S-kcSWSVi_szLgiuEHiC4W.woff2) format('woff2');
+            unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+        }
+
+        /* latin */
+        @font-face {
+            font-family: 'Raleway';
+            font-style: normal;
+            font-weight: 400;
+            font-display: block;
+            src: local('Raleway'), local('Raleway-Regular'), url(https://fonts.gstatic.com/s/raleway/v13/1Ptug8zYS_SKggPNyC0IT4ttDfA.woff2) format('woff2');
+            unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+        }
+    
+        </style>
         <style>
             :root {
                 --header-height: 36px;
+                --header-logo-size: 30px;
                 --header-font-size: 20px;
                 --intro1-font-size: 24px;
+                --cursive-font-family: 'Dancing Script', cursive;
             }
 
             /* layout */
@@ -15,19 +43,21 @@
                 margin: 0;
                 scroll-snap-type: y mandatory;
                 scroll-padding-top: var(--header-height);
+                font-family: 'Raleway', serif;
+                font-size: 18px;
             }
+
             
             section {
                 scroll-snap-align: start;
-                width: 100vw;
                 height: calc(100vh - var(--header-height));
-                padding: 12px;
                 box-sizing: border-box;
 
                 display: flex;
                 flex-direction: column;
                 justify-content: center;
                 align-items: center;
+                padding: 0 12px;
             }
 
             /* fixed header */
@@ -42,16 +72,28 @@
                 display: flex;
                 justify-content: center;
                 align-items: center;
+                
+                box-shadow: 0 3px 3px #d3d3d36b;
+                font-family: var(--cursive-font-family);
             }
             .fake-header {
                 height: var(--header-height);
             }
             .header__logo {
-                width: 20px;
-                height: 20px;
+                width: var(--header-logo-size);
+                height: var(--header-logo-size);
+                background-position: center center;
+                background-size: var(--header-logo-size) var(--header-logo-size);
+            }
+            .header__logo--male {
+                background-image: url(./assets/wedding-logo-male.png);
+            }
+            .header__logo--female {
+                background-image: url(./assets/wedding-logo-female.png);
             }
             .header__text {
                 margin: 0 5px;
+                width: 98.4px;
                 font-size: var(--header-font-size);
             }
 
@@ -59,74 +101,123 @@
             /* Intro 1 */ 
             .intro1 {
                 justify-content: flex-start;
-                padding-top: 40px;
+            }
+            .intro1__image-wrapper {
+                margin-top: 100px;
+                width: 100%;
             }
             .intro1__image {
-                background: lightgray;
-                width: 80vw;
-                height: 80vw;
+                display: block;
+                width: 100%;
             }
             .intro1__text {
                 width: 80vw;
                 text-align: right;
                 line-height: 1.6;
-                font-size: var(--intro1-font-size);
-                font-style: italic;
-                font-weight: 200;
+                font-size: 20px;
+                margin-top: 80px;
+            }
 
-                margin-top: 10px;
+            .section-text-deco {
+                --deco-height: 80px;
+                --deco-width: calc(var(--deco-height) * 1.7);
+                width: var(--deco-width);
+                height: var(--deco-height);
+                line-height: var(--deco-height);
+                font-size: 30px;
+                font-family: var(--cursive-font-family);
+                text-align: center;
+
+                background-image: url(./assets/wedding-header.jpg);
+                background-repeat: no-repeat;
+                background-size: cover;
             }
 
             .intro2 {
+                text-align: center;
             }
 
             .intro2__image {
                 width: 70vw;
-                height: 70vw;
-                background: lightblue;
+                height: 120vw;
+                background-image: url(./assets/wedding-key-visual.jpg);
+                background-size: cover;
+                background-repeat: no-repeat;
             }
 
             .intro2__text {
-                font-size: var(--intro1-font-size);
+                font-family: var(--cursive-font-family);
                 text-align: center;
                 margin: 5px 0;
+                font-size: 32px;
             }
 
-            .section-date {
-            }
             .section-date__title {
-                font-size: var(--header-font-size);
+                margin-bottom: 20px;
             }
             .section-date__date-text {
-                font-size: 48px;
+                text-align: center;
+                line-height: 1.6;
             }
             .section-date__calendar-link {
                 margin-top: 20px;
-                text-decoration: none;
-                padding: 8px;
+                text-decoration: none; padding: 8px;
                 color: black;
                 cursor: pointer;
                 border-radius: 2px;
                 border: 0.5px solid black;
+                font-size: 12px;
             }
 
-            .section-venue {
-                display: flex;
-                flex-direction: column;
-                justify-content: center;
-                align-items: center;
-            }
+
             .section-venue__title {
-                font-size: var(--header-font-size);
+                margin-bottom: 20px;
             }
             .section-venue__venue-text {
-                font-size: 28px;
+                text-align: center;
                 margin-bottom: 20px;
+                line-height: 1.6;
             }
 
             .section-rsvp__title {
-                font-size: var(--header-font-size);
                 margin-bottom: 20px;
+            }
+
+            @media only screen and (min-width: 500px) {
+                .intro1 {
+                    justify-content: flex-start;
+                }
+
+                .intro1__text {
+                    white-space: nowrap;
+                    width: 100%;
+                }
+                .intro1__text, .intro1__image-wrapper {
+                    max-width: 600px;
+                }
+                .intro1__image-wrapper {
+                    order: -1;
+                    margin-top: 80px;
+                }
+
+                .intro2 {
+                    flex-direction: row;
+                }
+
+                .intro2__image {
+                    max-width: 350px;
+                    max-height: 600px;
+                    margin-right: 50px;
+                }
+                .intro2__text-wrapper {
+                    margin-top: 50px;
+                }
+                .intro2__text {
+                    margin-bottom: 20px;
+                }
+                iframe {
+                    max-width: 750px;
+                }
             }
             
         </style>
@@ -135,60 +226,100 @@
     <body>
         <header>
             <!-- male logo here -->
-            <span class="header__logo" style="background:skyblue;"></span>
-            <span class="header__text">
-            Wedding 
-            </span>
+            <span class="header__logo header__logo--male" ></span>
+            <span class="header__text">Our Wedding </span>
             <!-- female logo here -->
-            <span class="header__logo" style="background:lightsalmon;"></span>
+            <span class="header__logo header__logo--female"></span>
         
         </header>
 
         <div class="fake-header"></div>
-        <section class="intro1">
-            <div class="intro1__image"></div>
-            <div class="intro1__text">
-                10 Years Later <br/>
-                Two Folks decided to <strike>get married</strike><br/>
-                be together FOREVER
-            </div>
-        </section>
+        <main>
+            <section class="intro1">
+                <div class="intro1__text">
+                    10 years later <br/>
+                    Two folks decided to <strike>get married</strike><br/>
+                    Be together <strong>FOREVER</strong>
+                </div>
+                <div class="intro1__image-wrapper">
+                    <img src="./assets/wedding-intro-alternative.jpg" class="intro1__image"></div>
+                </div>
+            </section>
 
-        <section class="intro2">
-            <div class="intro2__image"></div>
-            <div class="intro2__text">
-                CHENCHEN <br/> & <br/> JASPER
-            </div>
-            <div class="intro2__image" style="background:lightsalmon"></div>
-        </section>
+            <section class="intro2">
+                <div class="intro2__image"></div>
+                <div class="intro2__text-wrapper">
+                    <div class="intro2__text">
+                        Chenchen Sun<br/> & <br/> Jasper Jiang
+                    </div>
+                    <div>
+                        Request the pleasure of your company <br/>
+                        at the celebration of their union
+                    </div>
+                </div>
+                
+            </section>
 
-        <section class="section-date">
-            <div class="section-date__title">
-                SAVE The DATE
-            </div>
+            <section class="section-date">
+                <div class="section-date__title section-text-deco">
+                    Date
+                </div>
+                <div class="section-date__date-text">
+                    Saturday, 24th August, 2019<br/>
+                    Reception at 6.pm<br/>
+                    Solemnization at 6.30pm<br/>
+                </div>
 
-            <div class="section-date__date-text">
-                24•8•2019
-            </div>
+                <a class="section-date__calendar-link" target="__blank" href="http://www.google.com/calendar/event?action=TEMPLATE&dates=20190824T100000Z%2F20190824T130000Z&text=Chenchen%20%26%20Jasper's%20Wedding&location=Open%20Farm%20Community%2C%20130E%20Minden%20Road%2C%20Singapore%20248819&details=Reception%20at%206.pm%0ASolemnization%20at%206.30pm%0ANo%20dress%20code%20required">
+                    Save to your calendar
+                </a>
+            </section>
 
-            <a class="section-date__calendar-link" target="__blank" href="http://www.google.com/calendar/event?action=TEMPLATE&dates=20190823T223000Z%2F20190824T013000Z&text=Wedding&location=Open%20Farm&details=lalalal">
-                Book on your calendar
-            </a>
-        </section>
+            <section class="section-venue">
+                <div class="section-venue__title section-text-deco">
+                Venue 
+                </div>
+                <div class="section-venue__venue-text">
+                    Open Farm Community<br/>
+                    130E Minden Road, Singapore 248819<br/>
+                </div>
+                <iframe title="Google Maps" data-src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3988.7822998861043!2d103.81361751445861!3d1.3057337620800542!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31da1a224e7f6a3b%3A0x3c9a08c69ab33461!2sOpen+Farm+Community!5e0!3m2!1sen!2ssg!4v1561562442952!5m2!1sen!2ssg" width="100%" height="50%" frameborder="0" style="border:0" allowfullscreen></iframe>
+            </section>
 
-        <section class="section-venue">
-            <div class="section-venue__title">
-               Save The Venue 
-            </div>
-            <div class="section-venue__venue-text">
-                Open Farm Community
-            </div>
-            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3988.7822998861043!2d103.81361751445861!3d1.3057337620800542!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31da1a224e7f6a3b%3A0x3c9a08c69ab33461!2sOpen+Farm+Community!5e0!3m2!1sen!2ssg!4v1561562442952!5m2!1sen!2ssg" width="100%" height="70%" frameborder="0" style="border:0" allowfullscreen></iframe>
-        </section>
+            <section class="section-rsvp">
+                <div class="section-rsvp__title section-text-deco">RSVP</div>
+                <iframe title="Google Forms" data-src="https://docs.google.com/forms/d/e/1FAIpQLSdKxHkI5iwc0iTtrRb4UUbA9ArMY6jTpTjsBuNKNC869a0PDw/viewform?embedded=true" width="100%" height="70%" frameborder="0" marginheight="0" marginwidth="0">Loading...</iframe>
+            </section>
 
-        <section class="section-rsvp">
-            <div class="section-rsvp__title">RSVP NOW</div>
-            <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSdKxHkI5iwc0iTtrRb4UUbA9ArMY6jTpTjsBuNKNC869a0PDw/viewform?embedded=true" width="110%" height="90%" frameborder="0" marginheight="0" marginwidth="0">Loading...</iframe>
-        </section>
+        </main>
+
+        <script>
+            if (window.IntersectionObserver) {
+                const observer = new IntersectionObserver(function(entries){
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting && entry.target && !entry.target.src) {
+                            const target = entry.target;
+                            requestIdleCallback(() => {
+                                target.src = target.getAttribute('data-src');
+                            })
+                            observer.unobserve(target);
+                        }
+                    })
+                }, {
+                    rootMargin: '0px',
+                    threshold: 0.5
+                })
+
+                document.querySelectorAll('iframe').forEach(elem => {
+                    observer.observe(elem);
+                })
+
+            } else {
+                // fallback
+                document.querySelectorAll('iframe').forEach(elem => {
+                    elem.src = elem.getAttribute('data-src');
+                })
+            }
+        </script>
     </body>
 </html>
