@@ -4,6 +4,7 @@
         <meta name="viewport" content="width=device-width,initial-scale=1.0" />
         <title>Chenchen & Jasper's Wedding Invitation</title>
         <meta name="description" content="Request the pleasure of your company, at the celebration of their union"/>
+        <meta property="og:image" content="https://pedi.github.io/wedding/assets/wedding-intro-alternative.jpg" />
         <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
         <link rel="icon" href="/favicon.ico" type="image/x-icon">
         <style>
@@ -41,10 +42,15 @@
             body {
                 /* reset the browser margin */
                 margin: 0;
-                scroll-snap-type: y mandatory;
-                scroll-padding-top: var(--header-height);
                 font-family: 'Raleway', serif;
                 font-size: 18px;
+                /* wechat browser default background is not white */
+                background: white;
+            }
+
+            .scroll-snap {
+                scroll-snap-type: y mandatory;
+                scroll-padding-top: var(--header-height);
             }
 
             
@@ -294,6 +300,11 @@
         </main>
 
         <script>
+            // fix a weird bug that scroll snap not working on Chrome
+            // https://stackoverflow.com/questions/52949033/css-snap-scroll-fails-on-page-loads-with-chrome
+            window.addEventListener('load', function() {
+                document.body.className = 'scroll-snap';
+            });
             if (window.IntersectionObserver) {
                 const observer = new IntersectionObserver(function(entries){
                     entries.forEach(entry => {
