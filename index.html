@@ -316,9 +316,13 @@
                     entries.forEach(entry => {
                         if (entry.isIntersecting && entry.target && !entry.target.src) {
                             const target = entry.target;
-                            requestIdleCallback(() => {
+                            if (window.requestIdleCallback) {
+                                requestIdleCallback(() => {
+                                    target.src = target.getAttribute('data-src');
+                                })
+                            } else {
                                 target.src = target.getAttribute('data-src');
-                            })
+                            }
                             observer.unobserve(target);
                         }
                     })
