@@ -232,6 +232,22 @@
                 }
             }
             
+            .wechat-not-supported {
+                display: none;
+            }
+            .wechat-prompt {
+                position: fixed;
+                top: 0;
+                bottom: 0;
+                left: 0;
+                right: 0;
+
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                text-align: center;
+                background:white;
+            }
         </style>
         
     </head>
@@ -305,41 +321,53 @@
 
         </main>
 
+        <div class="wechat-not-supported">
+            Sorry Wechat 微信 is not supported. <br/>Please click on right corner to open this page in your browser
+        </div>
+
         <script>
-            // fix a weird bug that scroll snap not working on Chrome
-            // https://stackoverflow.com/questions/52949033/css-snap-scroll-fails-on-page-loads-with-chrome
-            window.addEventListener('load', function() {
-                document.body.className = 'scroll-snap';
-            });
-            if (window.IntersectionObserver) {
-                const observer = new IntersectionObserver(function(entries){
-                    entries.forEach(entry => {
-                        if (entry.isIntersecting && entry.target && !entry.target.src) {
-                            const target = entry.target;
-                            if (window.requestIdleCallback) {
-                                requestIdleCallback(() => {
-                                    target.src = target.getAttribute('data-src');
-                                })
-                            } else {
-                                target.src = target.getAttribute('data-src');
-                            }
-                            observer.unobserve(target);
-                        }
-                    })
-                }, {
-                    rootMargin: '0px',
-                    threshold: 0.5
-                })
-
-                document.querySelectorAll('iframe').forEach(elem => {
-                    observer.observe(elem);
-                })
-
+            function inWechat() {
+                var ua = window.navigator.userAgent.toLowerCase();
+                return ua.indexOf('micromessenger') != -1;
+            }
+            if (inWechat()) {
+                document.querySelector('.wechat-not-supported').classList.add('wechat-prompt');
             } else {
-                // fallback
-                document.querySelectorAll('iframe').forEach(elem => {
-                    elem.src = elem.getAttribute('data-src');
-                })
+                // fix a weird bug that scroll snap not working on Chrome
+                // https://stackoverflow.com/questions/52949033/css-snap-scroll-fails-on-page-loads-with-chrome
+                window.addEventListener('load', function() {
+                    document.body.className = 'scroll-snap';
+                });
+                if (window.IntersectionObserver) {
+                    const observer = new IntersectionObserver(function(entries){
+                        entries.forEach(entry => {
+                            if (entry.isIntersecting && entry.target && !entry.target.src) {
+                                const target = entry.target;
+                                if (window.requestIdleCallback) {
+                                    requestIdleCallback(() => {
+                                        target.src = target.getAttribute('data-src');
+                                    })
+                                } else {
+                                    target.src = target.getAttribute('data-src');
+                                }
+                                observer.unobserve(target);
+                            }
+                        })
+                    }, {
+                        rootMargin: '0px',
+                        threshold: 0.5
+                    })
+
+                    document.querySelectorAll('iframe').forEach(elem => {
+                        observer.observe(elem);
+                    })
+
+                } else {
+                    // fallback
+                    document.querySelectorAll('iframe').forEach(elem => {
+                        elem.src = elem.getAttribute('data-src');
+                    })
+                }
             }
         </script>
     </body>
